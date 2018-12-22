@@ -1,0 +1,59 @@
+{
+    "config": {
+        "sock-type": "TCP",
+        "modem_trace": {
+            "help": "Turns AT command trace on/off from the cellular modem, defaults to off",
+            "value": true
+        },
+		"lpticker_lptim": {
+			"help": "This target supports LPTIM. Set value 1 to use LPTIM for LPTICKER, or 0 to use RTC wakeup timer",
+			"value": 1
+		},
+		"lpticker_delay_ticks": {
+			"help": "In case of lpticker_lptim=1, set lpticker_delay_ticks=3",
+			"value": 3,
+			"macro_name": "LPTICKER_DELAY_TICKS"
+		},		
+	"trace-level": {
+	     "help":"Options are TRACE_LEVEL_ERROR,TRACE_LEVEL_WARN,TRACE_LEVEL_INFO,TRACE_LEVEL_DEBUG",
+	     "macro_name":"MBED_TRACE_MAX_LEVEL",
+	     "value":"TRACE_LEVEL_ERROR"
+	},
+        "sim-pin-code": {
+            "help": "SIM PIN code",
+            "value": "\"1234\""
+        },
+        "cellular-apn": {
+            "help": "The APN string to use for this SIM/network, set to 0 if none",
+            "value": "\"internet.iot\""
+        },
+        "username": {
+            "help": "The user name string to use for this APN, set to zero if none",
+            "value": 0
+        },
+        "password": {
+            "help": "The password string to use for this APN, set to 0 if none",
+            "value": 0
+        }
+	},
+    "target_overrides": {
+        "*": {
+	        "mbed-trace.enable":true,
+            "lwip.ipv4-enabled": true,
+            "lwip.ethernet-enabled": false,
+            "lwip.ppp-enabled": false,
+            "lwip.tcp-enabled": true,
+            "platform.stdio-convert-newlines": true,
+            "platform.stdio-baud-rate": 115200,
+            "platform.default-serial-baud-rate": 9600
+	},
+	"MTB_ADV_WISE_1570": {
+	    "target.stdio_uart_tx": "UART2_TX",
+	    "target.stdio_uart_rx": "UART2_RX",
+	    "target.clock_source": "USE_PLL_HSE_XTAL",
+	    "target.lpticker_lptim": 1,
+        "target.features_add": ["LWIP", "COMMON_PAL"],
+	    "cellular.debug-at": false
+        }
+    }
+}

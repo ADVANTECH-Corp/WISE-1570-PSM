@@ -1,0 +1,14 @@
+diff --git a/targets/TARGET_STM/TARGET_STM32L4/device/system_stm32l4xx.c b/targets/TARGET_STM/TARGET_STM32L4/device/system_stm32l4xx.c
+index f8719f6b4..53cb30003 100644
+--- a/targets/TARGET_STM/TARGET_STM32L4/device/system_stm32l4xx.c
++++ b/targets/TARGET_STM/TARGET_STM32L4/device/system_stm32l4xx.c
+@@ -119,6 +119,9 @@
+   #define HSI_VALUE    16000000U /*!< Value of the Internal oscillator in Hz*/
+ #endif /* HSI_VALUE */
+ 
++#define USE_PLL_HSE_EXTC (0) /* Use external clock */
++#define USE_PLL_HSE_XTAL (1) /* Use external xtal */
++
+ /**
+   * @}
+   */

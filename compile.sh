@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mbed compile -t GCC_ARM -m MTB_ADV_WISE_1570 -DMBED_TICKLESS -DMBED_ALL_STATS_ENABLED -c
